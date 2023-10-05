@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group = 'tv.fussel'
+version = '1.0-SNAPSHOT'
+
+compileJava {
+    options.encoding = 'UTF-8'
+    sourceCompatibility = 19
+    targetCompatibility = 19
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Dependency Management
+    implementation platform('com.konghq:unirest-java-bom:4.0.3')
+
+    // Core Dependency
+    implementation 'com.konghq:unirest-java-core'
+
+    // JSON Module (Choose one)
+    implementation 'com.konghq:unirest-object-mappers-gson'
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    implementation 'club.minnced:discord-webhooks:0.8.4'
+    implementation 'ch.qos.logback:logback-classic:1.4.8'
+}
+
+shadowJar {
+    archiveFileName = "${project.name}.jar"
+    manifest {
+        attributes 'Main-Class': 'tv.fussel.StaffWebhook'
+    }
+}
