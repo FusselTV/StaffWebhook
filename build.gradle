@@ -12,7 +12,6 @@ compileJava {
     targetCompatibility = 19
 }
 
-
 repositories {
     mavenCentral()
 }
@@ -24,7 +23,6 @@ dependencies {
     // Core Dependency
     implementation 'com.konghq:unirest-java-core'
 
-    // JSON Module (Choose one)
     implementation 'com.konghq:unirest-object-mappers-gson'
     implementation 'com.google.code.gson:gson:2.10.1'
 
@@ -33,7 +31,7 @@ dependencies {
 }
 
 shadowJar {
-    archiveFileName = "${project.name}.jar"
+    archiveFileName = "StaffWebhook.jar"
     manifest {
         attributes 'Main-Class': 'tv.fussel.StaffWebhook'
     }
