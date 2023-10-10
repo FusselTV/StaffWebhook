@@ -22,6 +22,9 @@ jobs:
         with:
           gradle-version: 8.4
 
+      - name: Setup Gradle wrapper
+        run: ./gradlew wrapper
+
       - name: Run build with Gradle wrapper
         run: ./gradlew shadowJar
 
